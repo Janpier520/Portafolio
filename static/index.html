@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portafolio - Janpier Romero</title>
+    <style>
+        :root{
+            /* Paleta: negro + anaranjado */
+            --bg: #000000;
+            --card: #0b0b0b;
+            --accent: #ff6a00; /* naranja brillante */
+            --muted: #bdbdbd; /* texto secundario */
+            --glass: rgba(255,106,0,0.06);
+            --radius:12px;
+            color-scheme: dark;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg,#000000 0%, #070707 60%);
+            color:#e6eef8;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:32px;
+        }
+
+        .container{
+            width:100%;
+            max-width:980px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border-radius:var(--radius);
+            box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+            overflow:hidden;
+            display:grid;
+            grid-template-columns: 320px 1fr;
+            gap:0;
+        }
+
+        /* SIDEBAR */
+        .sidebar{
+            padding:28px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+            border-right:1px solid rgba(255,255,255,0.03);
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+            align-items:center;
+        }
+        .avatar{
+            width:120px;
+            height:120px;
+            border-radius:16px;
+            background:var(--glass);
+            overflow:hidden;
+            display:block;
+        }
+        .avatar img, .avatar{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            display:block;
+        }
+        .name{
+            text-align:center;
+        }
+        .name h1{
+            margin:8px 0 0;
+            font-size:20px;
+            letter-spacing:0.2px;
+        }
+        .name p{
+            margin:4px 0 0;
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        .info{
+            width:100%;
+            background: rgba(255,255,255,0.01);
+            padding:12px;
+            border-radius:10px;
+            border:1px solid rgba(255,255,255,0.02);
+            font-size:14px;
+            color:var(--muted);
+        }
+        .info-item{
+            display:flex;
+            justify-content:space-between;
+            padding:6px 0;
+            border-bottom:1px dashed rgba(255,255,255,0.01);
+        }
+        .info-item:last-child{border-bottom:0}
+        .label{color:var(--muted);font-size:13px}
+        .value{font-weight:600;color:#e6eef8}
+
+        .social{
+            width:100%;
+            display:flex;
+            gap:8px;
+            justify-content:center;
+        }
+        .btn{
+            display:inline-flex;
+            gap:8px;
+            align-items:center;
+            background:linear-gradient(180deg,var(--accent),#b34700);
+            color:white;
+            padding:10px 14px;
+            border-radius:10px;
+            text-decoration:none;
+            font-weight:600;
+            box-shadow: 0 6px 18px rgba(255,106,0,0.18);
+        }
+        .btn.ghost{
+            background:transparent;
+            border:1px solid rgba(255,255,255,0.04);
+            color:var(--muted);
+            box-shadow:none;
+        }
+
+        /* MAIN */
+        .main{
+            padding:28px;
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+        .section{
+            background: rgba(255,255,255,0.01);
+            padding:18px;
+            border-radius:12px;
+            border:1px solid rgba(255,255,255,0.02);
+        }
+        .section h2{
+            margin:0 0 10px 0;
+            font-size:16px;
+        }
+        .bio{
+            color:var(--muted);
+            line-height:1.5;
+            font-size:14px;
+        }
+
+        .cols{
+            display:grid;
+            grid-template-columns: repeat(2,1fr);
+            gap:12px;
+        }
+
+        .field{
+            display:flex;
+            flex-direction:column;
+            gap:6px;
+            font-size:13px;
+            color:var(--muted);
+        }
+        .field strong{color:#e6eef8;font-size:14px}
+        /* Conocimientos / Skills */
+        .skills-list{
+            display:flex;
+            gap:8px;
+            flex-wrap:wrap;
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        .skill-badge{
+            background: rgba(255,106,0,0.08);
+            color: var(--accent);
+            padding:6px 10px;
+            border-radius:999px;
+            font-weight:700;
+            font-size:13px;
+            border:1px solid rgba(255,106,0,0.08);
+        }
+        .cta-row{
+            display:flex;
+            gap:8px;
+            align-items:center;
+        }
+
+        footer{
+            text-align:center;
+            color:var(--muted);
+            font-size:13px;
+            padding-top:6px;
+        }
+
+        @media (max-width:820px){
+            .container{grid-template-columns:1fr; padding:0}
+            .sidebar{flex-direction:row; padding:16px; gap:12px; align-items:center; justify-content:space-between}
+            .main{padding:18px}
+            .cols{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+    <div class="container" role="main">
+        <aside class="sidebar" aria-label="Información personal">
+            <div style="display:flex;flex-direction:column;gap:10px;align-items:center;width:100%">
+                <img id="avatar-img" class="avatar" src="static/img/foto_perfil.jpg" alt="Foto de perfil">
+                
+                <div class="name">
+                    <h1 id="nombre-display">Nombre Apellido</h1>
+                    <p id="carrera-display">Carrera • Semestre</p>
+                </div>
+
+                <div class="info" style="width:100%">
+                    <div class="info-item">
+                        <div class="label">Cédula</div>
+                        <div class="value" id="cedula-display">000-0000000-0</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Teléfono</div>
+                        <div class="value" id="telefono-display">+58 000 0000000</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Email</div>
+                        <div class="value" id="email-display">tucorreo@ejemplo.com</div>
+                    </div>
+                </div>
+
+                <div class="social">
+                    <!-- Botón al perfil de GitHub -->
+                    <a id="github-btn" class="btn" href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil de GitHub">
+                        <!-- simple icon -->
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="white" d="M8 .198a8 8 0 00-2.528 15.598c.4.074.546-.174.546-.386 0-.19-.007-.693-.01-1.36-2.225.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.172-.89-1.172-.727-.497.055-.487.055-.487.803.057 1.226.825 1.226.825.715 1.224 1.874.871 2.33.667.072-.517.28-.871.508-1.072-1.776-.202-3.644-.888-3.644-3.953 0-.873.312-1.587.824-2.148-.083-.203-.357-1.018.078-2.123 0 0 .672-.215 2.2.82a7.667 7.667 0 012.004-.27c.68.003 1.366.092 2.005.27 1.526-1.035 2.196-.82 2.196-.82.437 1.105.162 1.92.08 2.123.513.561.823 1.275.823 2.148 0 3.073-1.87 3.749-3.653 3.946.288.247.544.735.544 1.48 0 1.068-.01 1.93-.01 2.19 0 .214.144.463.55.385A8 8 0 008 .198z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main" aria-label="Detalle del portafolio">
+            <section class="section" aria-labelledby="about-heading">
+                <h2 id="about-heading">Sobre mí</h2>
+                <p class="bio" id="bio">Soy estudiante de [Tu Carrera] interesado en desarrollo de software, buenas prácticas y aprendizaje continuo. Aquí puedes mostrar una breve descripción de tus intereses, habilidades o metas profesionales.</p>
+            </section>
+
+            <section class="section" aria-labelledby="datos-heading">
+                <h2 id="datos-heading">Datos académicos y de contacto</h2>
+                <div class="cols">
+                    <div class="field">
+                        <label class="label">Nombre completo</label>
+                        <strong id="nombre-full">Nombre Apellido</strong>
+                    </div>
+                    <div class="field">
+                        <label class="label">Cédula</label>
+                        <strong id="cedula">000-0000000-0</strong>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Carrera</label>
+                        <strong id="carrera">Ingeniería de Sistemas</strong>
+                    </div>
+                    <div class="field">
+                        <label class="label">Semestre</label>
+                        <strong id="semestre">5º</strong>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Teléfono</label>
+                        <strong id="telefono">+58 000 0000000</strong>
+                    </div>
+                    <div class="field">
+                        <label class="label">Correo</label>
+                        <strong id="email">tucorreo@ejemplo.com</strong>
+                    </div>
+                </div>
+
+                <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+                    <a id="github-cta" class="btn" href="https://github.com/Janpier520" target="_blank" rel="noopener noreferrer">Ver mi GitHub</a>
+                    <a class="btn ghost" href="#" onclick="alert('Descarga de currículum no configurada')">Descargar CV</a>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="proyectos-heading">
+                <h2 id="proyectos-heading">Proyectos destacados</h2>
+                <p class="bio">·Proyecto Matemático sobre el método de Bisección mediante funciones y grafica integrada</p>
+            </section>
+
+            <section class="section" aria-labelledby="skills-heading">
+                <h2 id="skills-heading">Conocimientos</h2>
+                <!-- Lista de skills: será poblada desde profile.skills si existe -->
+                <ul id="skills-list" class="skills-list">
+                    <li class="skill-badge">C++</li>
+                    <li class="skill-badge">Visual Basic</li>
+                    <li class="skill-badge">Python</li>
+                </ul>
+            </section>
+
+            <footer>
+                Janpier Yesid Romero Paredes
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Cambia estos valores con tu información real.
+        const profile = {
+            nombre: "Janpier",
+            apellido: "Romero",
+            cedula: "V-31.914.031",
+            telefono: "+58 424 5207183",
+            email: "janpierromero212006@hotmail.com",
+            carrera: "Análisis de Sistemas",
+            semestre: "4to",
+            github: "https://github.com/Janpier520",
+            bio: "Estudiante de Análisis de Sistemas enfocado en desarrollo web, aplicaciones y buenas prácticas. Busco oportunidades para contribuir en proyectos reales y aprender nuevas tecnologías.",
+            skills: ["C++", "Visual Basic", "Python"],
+            avatar: "static/img/foto_perfil.jpg"
+        };
+        // Exponer perfil globalmente (útil para scripts posteriores)
+        window.profile = profile;
+ 
+        // Asignar datos al DOM
+        document.getElementById('nombre-display').textContent = profile.nombre + " " + profile.apellido;
+        document.getElementById('nombre-full').textContent = profile.nombre + " " + profile.apellido;
+        document.getElementById('cedula-display').textContent = profile.cedula;
+        document.getElementById('cedula').textContent = profile.cedula;
+        document.getElementById('telefono-display').textContent = profile.telefono;
+        document.getElementById('telefono').textContent = profile.telefono;
+        document.getElementById('email-display').textContent = profile.email;
+        document.getElementById('email').textContent = profile.email;
+    document.getElementById('carrera-display').textContent = profile.carrera + " • " + profile.semestre;
+        document.getElementById('carrera').textContent = profile.carrera;
+        document.getElementById('semestre').textContent = profile.semestre;
+        document.getElementById('bio').textContent = profile.bio;
+
+        // Enlaces a GitHub
+        document.getElementById('github-btn').href = profile.github;
+        document.getElementById('github-cta').href = profile.github;
+        // Avatar: si existe el elemento, asignar la imagen del perfil
+        const avatarEl = document.getElementById('avatar-img');
+        if(avatarEl && profile.avatar) avatarEl.src = profile.avatar;
+
+        // Poblado dinámico de conocimientos (skills)
+        const skillsEl = document.getElementById('skills-list');
+        if(skillsEl){
+            if(Array.isArray(profile.skills) && profile.skills.length){
+                skillsEl.innerHTML = profile.skills.map(s => `<li class="skill-badge">${s}</li>`).join('');
+            }
+        }
+    </script>
+</body>
+</html>
